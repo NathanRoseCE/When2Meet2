@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>Button Fun</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <style>
+        button{            
+            height:50px;
+            width:50px;            
+        }
+        .red {
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+    </style>
+    <script type="text/javascript">
+        // function to change class
+        function changeColor($elm, classes) {                
+            var className = $elm.attr('class');                
+            var index = $.inArray(className, classes);
+
+            $elm.removeClass(className);
+            index++;                
+            if (index === classes.length) {
+                index = 0;
+            }
+            $elm.addClass(classes[index]);                
+        }        
+        // equivalent to $(document).ready
+        $(function(){            
+            // cache button element
+            var $button = $("#dynamic-button");
+            var classes = ["red","blue"];
+            // attach event with $button
+            $button.on("click", function (){                
+                changeColor($(this), classes);     
+            });
+        }); 
+        $(function(){            
+            // cache button element
+            var $button = $("#dynamic-button2");
+            var classes = ["red","blue"];
+            // attach event with $button
+            $button.on("click", function (){                
+                changeColor($(this), classes);     
+            });
+        });     
+         $(function(){            
+            // cache button element
+            var $button = $("#dynamic-button3");
+            var classes = ["red","blue"];
+            // attach event with $button
+            $button.on("click", function (){                
+                changeColor($(this), classes);     
+            });
+           });  
+           $(function(){            
+            // cache button element
+            var $button = $("#dynamic-button4");
+            var classes = ["red","blue"];
+            // attach event with $button
+            $button.on("click", function (){                
+                changeColor($(this), classes);     
+            });
+            }); 
+            $(function(){            
+            // cache button element
+            var $button = $("#dynamic-button5");
+            var classes = ["red","blue"];
+            // attach event with $button
+            $button.on("click", function (){                
+                changeColor($(this), classes);     
+            });
+            }); 
+            $(function(){            
+            // cache button element
+            var $button = $("#dynamic-button6");
+            var classes = ["red","blue"];
+            // attach event with $button
+            $button.on("click", function (){                
+                changeColor($(this), classes);     
+            });
+            }); 
+    </script>
+</head>
+<body>
+    <button id="dynamic-button" class="blue"></button>
+    <button id="dynamic-button2" class="blue"></button>
+    <button id="dynamic-button3" class="blue"></button>
+    <button id="dynamic-button4" class="blue"></button>
+    <button id="dynamic-button5" class="blue"></button>
+    <p></p>
+    <button id="dynamic-button6" class="blue"></button>
+    
+</body>
+</html>
