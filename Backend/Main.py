@@ -1,0 +1,67 @@
+import Schedule
+import User
+
+test = Schedule.Schedule("fdsrehreahrea", "Test Schedule")
+userOne = User.User("gfdagreasgres", "Nathan")
+userOne.changeAvailibility(0, 0)
+userOne.changeAvailibility(1, 2)
+userOne.changeAvailibility(1, 3)
+userOne.changeAvailibility(2, 4)
+userOne.changeAvailibility(2, 5)
+userOne.changeAvailibility(3, 4)
+userOne.changeAvailibility(4, 5)
+userOne.changeAvailibility(5, 2)
+userTwo = User.User("fhregbieragboahg", "Abby")
+userTwo.changeAvailibility(0, 0)
+userTwo.changeAvailibility(1, 1)
+userTwo.changeAvailibility(1, 2)
+userTwo.changeAvailibility(1, 3)
+userTwo.changeAvailibility(2, 3)
+userTwo.changeAvailibility(2, 5)
+userTwo.changeAvailibility(3, 0)
+userTwo.changeAvailibility(3, 1)
+userTwo.changeAvailibility(4, 2)
+userThree = User.User("fhjewbOFEWBOBEW", "Jackie")
+userThree.changeAvailibility(0, 0)
+userThree.changeAvailibility(1, 0)
+userThree.changeAvailibility(1, 1)
+userThree.changeAvailibility(1, 2)
+userThree.changeAvailibility(2, 3)
+userThree.changeAvailibility(2, 4)
+userFour = User.User("fdjsbfoiewnbgoap", "Corrie")
+userFour.changeAvailibility(0, 0)
+userFour.changeAvailibility(0, 2)
+userFour.changeAvailibility(1, 1)
+userFour.changeAvailibility(1, 3)
+userFour.changeAvailibility(2, 0)
+userFour.changeAvailibility(2, 3)
+userFour.changeAvailibility(2, 4)
+userFour.changeAvailibility(2, 5)
+userFour.changeAvailibility(3, 4)
+userFour.changeAvailibility(4, 5)
+userFive = User.User("fnejwbfpewhpewhp", "Teja")
+userFive.changeAvailibility(1, 2)
+userFive.changeAvailibility(1, 3)
+userFive.changeAvailibility(2, 2)
+userFive.changeAvailibility(2, 3)
+userFive.changeAvailibility(2, 4)
+userFive.changeAvailibility(5, 0)
+userFive.changeAvailibility(5, 1)
+userFive.changeAvailibility(5, 3)
+print("Schedule Test")
+test.addMember(userOne);
+test.addMember(userTwo);
+test.addMember(userThree);
+test.addMember(userFour);
+test.addMember(userFive);
+
+test.calculateTimes();
+print(test.times)
+bestTimes = test.findBestTime()
+print(bestTimes)
+for time in bestTimes:
+    print(time)
+    members = test.membersAtTime(time)
+    for member in members:
+        print(member.name)
+    print()
