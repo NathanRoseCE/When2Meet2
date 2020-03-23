@@ -25,7 +25,7 @@ class Schedule:
             self.times += member.times
 
     def membersAtTime(self, day, time):
-        availableMembers = [];
+        availableMembers = []
         # for each member
         for member in self.members:
             # see if they are available and if they are add them to the list
@@ -33,7 +33,7 @@ class Schedule:
                 availableMembers.append(member)
 
     def membersAtTime(self, timeArray):
-        availableMembers = [];
+        availableMembers = []
         # for each member
         for member in self.members:
             # see if they are available and if they are add them to the list
@@ -52,3 +52,33 @@ class Schedule:
                 elif mostPeople == self.times[day, time]:
                     bestTimes.append([day, time])
         return bestTimes
+
+    def saveToFile(self, fileName):
+        saveFile = open(fileName, "w")
+        saveFile.write(str(self.times.size / self.times[0].size) + ", " + str(self.times[0].size)
+                       + "," + str(len(self.members)) + ",\n")
+        for member in self.members:
+            member.save()
+            saveFile.write(member.name + ",")
+        saveFile.write("\n")
+        for day in self.times:
+            dayLine = ""
+            for time in day:
+                dayLine = dayLine + str(time) + ","
+            saveFile.write(dayLine + "\n")
+
+        saveFile.close()
+
+    def loadFromFile(self, fileName):
+        loadFile = open(fileName, "r")
+        metaData = loadFile.readline().split(",")
+        days = metaData[0]
+        times = metaData[1]
+        numMembers = int(metaData[2])
+        memberNames = loadFile.readline().split(",")
+        for member in range(numMembers):
+            user = User.User("", "")
+            user.load(memberNames[member])
+            self.members.append(user)
+        self.calculateTimes()
+

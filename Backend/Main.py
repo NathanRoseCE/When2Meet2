@@ -65,3 +65,6 @@ for time in bestTimes:
     for member in members:
         print(member.name)
     print()
+test.saveToFile("test.csv")
+loadTest = Schedule.Schedule("greagarehre", "Test Load Schedule")
+loadTest.loadFromFile("test.csv")
