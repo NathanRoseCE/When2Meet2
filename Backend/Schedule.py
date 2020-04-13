@@ -150,12 +150,20 @@ class Schedule:
 
     def saveToFile(self, fileName):
         saveFile = open(fileName, "w")
-        saveFile.write(str(self.times.size / self.times[0].size) + ", " + str(self.times[0].size)
-                       + "," + str(len(self.members)) + ",\n")
+        saveFile.write(str(int(self.times.size / self.times[0].size)) + ", " + str(self.times[0].size)
+                       + ", " + str(len(self.members)) + ",\n")
+        solution = self.determineBestMeetingTime()
+        meetingsString = str(len(solution)) + ", "
+        for meetingTime in solution:
+            meetingsString += "[" + str(meetingTime.startTime[0]) + "-" + str(meetingTime.startTime[1]) + "]"
+            meetingsString += " - [" + str(meetingTime.endTime[0]) + "-" + str(meetingTime.endTime[1]) + "], "
+        saveFile.write(meetingsString + "\n")
+
         for member in self.members:
             member.save()
             saveFile.write(member.name + ",")
         saveFile.write("\n")
+        self.calculateTimes()
         for day in self.times:
             dayLine = ""
             for time in day:
@@ -171,6 +179,7 @@ class Schedule:
         times = metaData[1]
         numMembers = int(metaData[2])
         memberNames = loadFile.readline().split(",")
+        loadFile.readline() #dont bother readign solution line
         for member in range(numMembers):
             user = User.User("", "")
             user.load(memberNames[member])

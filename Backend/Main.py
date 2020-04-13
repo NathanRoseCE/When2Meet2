@@ -62,5 +62,6 @@ test.addMember(userFive, False);
 print("Algorithm SOlution")
 print()
 solution = test.determineBestMeetingTime()
+test.saveToFile("Test.csv")
 for time in solution:
     print(time.toString())
