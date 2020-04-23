@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>When2meet</h1>
+<p></p>
+
+<script>
+function toggleColor(btn, highColor, lowColor) {
+	var property = btn;
+    if (property.toggled !== 'toggled') {
+        property.style.backgroundColor=lowColor;
+        property.toggled = 'toggled';
+    }
+    else {
+        property.style.backgroundColor = highColor;
+        property.toggled = '';
+    }
+}
+</script>
+<p>Monday &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   Tuesday &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Wednesday &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Thursday &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Friday </p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<p></p>
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+<input type="button" value = "" style= "color:white height:100px;width:100px " onclick= "toggleColor(this, '#808080', '#00FF00')">
+
+
+
+</body>
+</html>
