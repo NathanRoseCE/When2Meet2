@@ -5,7 +5,7 @@ class User:
         self.id = id
         self.name = name
         # times needs to a numpy int array for the Schedule
-        self.times = np.zeros([7, 18], dtype=int)
+        self.times = np.zeros([7, 48], dtype=int)
 
     def changeAvailibility(self, day, time):
         self.times[day][time] ^= 1
