@@ -195,7 +195,7 @@ def findMeetingTime(chunks, membersRemaining, layersRemaining):
         try:
             membersRemaining.remove(chunkMember)
         except:
-            i =0# another throwaway
+            i =0# throwaway
 
     if layersRemaining <= 0:
         if membersRemaining == []:
