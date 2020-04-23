@@ -22,7 +22,32 @@ class Schedule:
                 self.members.remove(self.members[i])
                 self.critical.remove(self.critical[i])
 
+    def determineBestMeetingTime(self):
+        criticalMembers = []
+        nonCriticalMembers = []
+        for i in range(len(self.members)):
+            if self.critical[i] == True:
+                criticalMembers.append(self.members[i])
+            else:
+                nonCriticalMembers.append(self.members[i])
 
+        chunks = TimeChunk.determineAllChunks(self.members)
+
+        criticalChunks = self.determineCriticalChunks(chunks, criticalMembers)
+        if criticalChunks == []:
+            print("Not all critical members can meet")
+            print("Suggested to remove some members")
+            return []
+
+        cantMeet = self.membersWhoCantMeet(nonCriticalMembers, criticalChunks)
+        # If they cant print a message and list all names
+        if len(cantMeet) != 0:
+            print("The following members are not able to meet due to critical member hours, and have been removed")
+            for member in cantMeet:
+                nonCriticalMembers.remove(member)
+                print(member.name)
+
+        return self.determineBestSolution(nonCriticalMembers, criticalChunks)
     def calculateTimes(self):
         # reset times
         self.times = np.zeros([7, 48], dtype=int)
@@ -51,7 +76,7 @@ class Schedule:
 
     def findBestTime(self):
         bestTimes = [[0, 0]]
-        mostPeople=0
+        mostPeople = 0
         for day in range(self.times.shape[0]):
             for time in range(self.times[day].shape[0]):
                 if mostPeople < self.times[day, time]:
@@ -61,73 +86,19 @@ class Schedule:
                     bestTimes.append([day, time])
         return bestTimes
 
-    def determineBestMeetingTime(self):
-        criticalMembers = []
-        nonCriticalMembers = []
-        for i in range(len(self.members)):
-            if self.critical[i] == True:
-                criticalMembers.append(self.members[i])
-            else:
-                nonCriticalMembers.append(self.members[i])
-
-        # determine chunks
-        chunks = TimeChunk.determineAllChunks(self.members)
-
-        # Determine times when all critical members can meet
-        criticalChunks = [];
-        for chunk in chunks:
-            allCritical = True
-            for criticalMember in criticalMembers:
-                if chunk.members.count(criticalMember) == 0:
-                    allCritical = False
-                    break
-            if allCritical:
-                criticalChunks.append(chunk)
-
-        if criticalChunks == []:
-            print("Not all critical members can meet")
-            print("Suggested to remove some members")
-            return []
-
-        # make sure every member can meet at the restricted time of only critical members
-        nonCriticalCopy = nonCriticalMembers.copy()
-        for chunk in criticalChunks:
-            for member in chunk.members:
-                #I know I should specify the error but Im a bit lazy rn and this is the only erro that should occur
-                try:
-                    nonCriticalCopy.remove(member)
-                except:
-                    i = 0# throwaway line
-
-        # If they cant print a message and list all names
-        if len(nonCriticalCopy) != 0:
-            print("The following members are not able to meet due to critical member hours, and have been removed")
-            for member in nonCriticalCopy:
-                nonCriticalMembers.remove(member)
-                print(member.name)
-
-        # This is where the fun begins, determining the best time to meet
-        # This is done through recursion, a dummy node is placed at the front
-        # because its the most elegant solution I found to make this iterate through all of them
+    def determineBestSolution(self, nonCriticalMembers, criticalChunks):
         solutionSet = []
+
+        #If no one but critical members can meet that is the solution
         if nonCriticalMembers == []:
             for chunk in criticalChunks:
                 solutionSet.append([chunk])
+                return solutionSet
 
-        depth = 0
-        dummyHead = TimeChunk.TimeChunk([-1,-1],[-1,-1], [])
-        criticalChunks.insert(0, dummyHead)
-        while solutionSet == []:
-            depth = depth + 1
-            resultSet = findMeetingTime(criticalChunks.copy(), nonCriticalMembers.copy(), depth)
-            if resultSet != []:
-                # remove dummy node
-                for result in resultSet:
-                    del result[0]
-                solutionSet = resultSet
+        solutionSet = self.determineSolutionSet(criticalChunks, nonCriticalMembers)
+        return self.chooseBestSolution(solutionSet)
 
-        #Now since we have a set of solutions with the same number of meetings, find the one with the highest average
-        #member attendance, also since everything is divided at the end by the same number im just not
+    def chooseBestSolution(self, solutionSet):
         finalSolution = []
         bestAverage = 0
         for solution in solutionSet:
@@ -140,14 +111,59 @@ class Schedule:
 
         return finalSolution
 
+    def determineSolutionSet(self, criticalChunks, nonCriticalMembers):
+        solutionSet = []
+        depth = 0
+        dummyHead = TimeChunk.TimeChunk([-1, -1], [-1, -1], [])
+        criticalChunks.insert(0, dummyHead)
+        while solutionSet == []:
+            depth = depth + 1
+            resultSet = findMeetingTime(criticalChunks.copy(), nonCriticalMembers.copy(), depth)
+            if resultSet != []:
+                # remove dummy node
+                for result in resultSet:
+                    del result[0]
+                solutionSet = resultSet
+        return solutionSet
+    def determineCriticalChunks(self, chunks, criticalMembers):
+        criticalChunks = []
+        for chunk in chunks:
+            allCritical = True
+            for criticalMember in criticalMembers:
+                if chunk.members.count(criticalMember) == 0:
+                    allCritical = False
+                    break
+            if allCritical:
+                criticalChunks.append(chunk)
+        return criticalChunks
+
+    def membersWhoCantMeet(self, nonCriticalMembers, criticalChunks):
+        cantMeet = nonCriticalMembers.copy()
+        for chunk in criticalChunks:
+            for member in chunk.members:
+                # I know I should specify the error but Im a bit lazy rn and this is the only erro that should occur
+                try:
+                    cantMeet.remove(member)
+                except:
+                    i = 0  # throwaway line
+        return cantMeet
+
     def saveToFile(self, fileName):
         saveFile = open(fileName, "w")
-        saveFile.write(str(self.times.size / self.times[0].size) + ", " + str(self.times[0].size)
-                       + "," + str(len(self.members)) + ",\n")
+        saveFile.write(str(int(self.times.size / self.times[0].size)) + ", " + str(self.times[0].size)
+                       + ", " + str(len(self.members)) + ",\n")
+        solution = self.determineBestMeetingTime()
+        meetingsString = str(len(solution)) + ", "
+        for meetingTime in solution:
+            meetingsString += "[" + str(meetingTime.startTime[0]) + "-" + str(meetingTime.startTime[1]) + "]"
+            meetingsString += " - [" + str(meetingTime.endTime[0]) + "-" + str(meetingTime.endTime[1]) + "], "
+        saveFile.write(meetingsString + "\n")
+
         for member in self.members:
             member.save()
             saveFile.write(member.name + ",")
         saveFile.write("\n")
+        self.calculateTimes()
         for day in self.times:
             dayLine = ""
             for time in day:
@@ -163,11 +179,13 @@ class Schedule:
         times = metaData[1]
         numMembers = int(metaData[2])
         memberNames = loadFile.readline().split(",")
+        loadFile.readline() #dont bother readign solution line
         for member in range(numMembers):
             user = User.User("", "")
             user.load(memberNames[member])
             self.members.append(user)
         self.calculateTimes()
+
 
 def findMeetingTime(chunks, membersRemaining, layersRemaining):
     thisChunk = chunks.pop(0)
@@ -177,7 +195,7 @@ def findMeetingTime(chunks, membersRemaining, layersRemaining):
         try:
             membersRemaining.remove(chunkMember)
         except:
-            i =0# another throwaway
+            i =0# throwaway
 
     if layersRemaining <= 0:
         if membersRemaining == []:
